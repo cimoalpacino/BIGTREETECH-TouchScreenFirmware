@@ -45,8 +45,8 @@
  *
  */
 #define DEFAULT_LCD_BRIGHTNESS      10  // 10: LCD_100_PERCENT - Brightness value from list
-#define DEFAULT_LCD_IDLE_BRIGHTNESS 2   // 2: LCD_10_PERCENT - Brightness value from list
-#define DEFAULT_LCD_IDLE_TIMER      0   // 0: LCD_DIM_OFF
+#define DEFAULT_LCD_IDLE_BRIGHTNESS 1   // 2: LCD_10_PERCENT - Brightness value from list
+#define DEFAULT_LCD_IDLE_TIMER      4   // 0: LCD_DIM_OFF
 #define LCD_DIM_CUSTOM_SECONDS      600 // Custom value in seconds. Will be used if LCD_DIM_CUSTOM_SECONDS is set as idle timer.
 
 //===========================================================================
@@ -91,7 +91,7 @@
  *
  *  Options:  0: Disabled    1: Enabled
  */
-#define SERIAL_ALWAYS_ON 0  // Default: 0 (Disabled)
+#define SERIAL_ALWAYS_ON 1  // Default: 0 (Disabled)
 
 //===========================================================================
 //========================== Touch Mode Settings ============================
@@ -106,7 +106,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 /**
  * Default Touch Mode Language
@@ -155,10 +155,10 @@
 
 //                         PLA      PETG      ABS
 #define PREHEAT_LABELS   {"PLA", "PETG", "ABS", "TPU"}
-#define PREHEAT_HOTEND   {200,   250,    230,   230}
-#define PREHEAT_BED      {60,    70,     100,   50}
+#define PREHEAT_HOTEND   {200,   230,    230,   230}
+#define PREHEAT_BED      {60,    80,     100,   50}
 
-#define HEAT_MAX_TEMP    {150,    275,       275,       275,       275,       275,       275}    //max temperature can be set
+#define HEAT_MAX_TEMP    {135,    275,       275,       275,       275,       275,       275}    //max temperature can be set
 #define HEAT_SIGN_ID     {"B:",   "T0:",     "T1:",     "T2:",     "T3:",     "T4:",     "T5:"}
 #define HEAT_DISPLAY_ID  {"Bed",  "T0",      "T1",      "T2",      "T3",      "T4",      "T5"}
 #define HEAT_CMD         {"M140", "M104 T0", "M104 T1", "M104 T2", "M104 T3", "M104 T4", "M104 T5" };

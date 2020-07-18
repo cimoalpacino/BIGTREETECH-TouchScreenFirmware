@@ -110,7 +110,7 @@
     #define SL_LOADING                "Nalagam..."
     #define SL_POWER_FAILED           "Nadaljuj s tiskanjem?" //Question Sign
     #define SL_CONTINUE               "Nadaljuj"
-    #define SL_CANCEL                 "\u088F Prekliči" //Cancel Sign
+    #define SL_CANCEL                 "\u088F Preklic" //Cancel Sign
     #define SL_ADJUST_TITLE           "Kalibracija zaslona na dotik"
     #define SL_ADJUST_INFO            "Pritisni na rdečo piko"
     #define SL_ADJUST_OK              "Nastavitev uspešna"
@@ -161,7 +161,7 @@
     #define SL_FILE_LISTMODE          "Prikaz datotek v seznamu"
     #define SL_CURRENT_SETTING        "Tok driverja mot. (mA)"
     #define SL_STEPS_SETTING          "Št. korakov na MM"
-    #define SL_MAXFEEDRATE            "Max hitr. dovajanja fil."
+    #define SL_MAXFEEDRATE            "Max hitrost pomika"
     #define SL_MAXACCELERATION        "Max pospešek"
     #define SL_ACCELERATION           "Pospešek"
     #define SL_PRINT_ACCELERATION     "Pospešek tiska"
