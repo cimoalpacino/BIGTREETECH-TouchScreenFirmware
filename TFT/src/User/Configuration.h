@@ -45,8 +45,8 @@
  *
  */
 #define DEFAULT_LCD_BRIGHTNESS      11  // 11: LCD_100_PERCENT - Brightness value from list
-#define DEFAULT_LCD_IDLE_BRIGHTNESS 3   // 3: LCD_10_PERCENT - Brightness value from list
-#define DEFAULT_LCD_IDLE_TIMER      0   // 0: LCD_DIM_OFF
+#define DEFAULT_LCD_IDLE_BRIGHTNESS 2   // 3: LCD_10_PERCENT - Brightness value from list
+#define DEFAULT_LCD_IDLE_TIMER      4   // 0: LCD_DIM_OFF
 #define LCD_DIM_CUSTOM_SECONDS      600 // Custom value in seconds. Will be used if LCD_DIM_CUSTOM_SECONDS is set as idle timer.
 
 //===========================================================================
@@ -91,7 +91,7 @@
  *
  * Options:  0: Disabled    1: Enabled
  */
-#define SERIAL_ALWAYS_ON 0  // Default: 0 (Disabled)
+#define SERIAL_ALWAYS_ON 1  // Default: 0 (Disabled)
 
 //===========================================================================
 //========================== Touch Mode Settings ============================
@@ -105,7 +105,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 /**
  * Default Touch Mode Language
@@ -171,11 +171,18 @@
 #define EXTRUDER_NUM 1    // set in 1~6
 #define FAN_NUM      1    // set in 1~6
 
+<<<<<<< Updated upstream
 #define PREHEAT_LABELS   {"PLA", "PETG", "ABS", "WOOD", "TPU", "NYLON"}
 #define PREHEAT_HOTEND   {200,   240,    230,   170,    220,   250}
 #define PREHEAT_BED      {60,    70,     90,    50,     50,    90}
+=======
+//                         PLA    PETG    ABS    TPU
+#define PREHEAT_LABELS   {"PLA", "PETG", "ABS", "TPU"}
+#define PREHEAT_HOTEND   {200,   220,    230,   220}
+#define PREHEAT_BED      {60,    70,     90,   50}
+>>>>>>> Stashed changes
 
-#define HEAT_MAX_TEMP    {275,       275,       275,       275,       275,       275,       150,    60}   //max temperature can be set
+#define HEAT_MAX_TEMP    {275,       275,       275,       275,       275,       275,       135,    60}   //max temperature can be set
 #define HEAT_SIGN_ID     {"T0:",     "T1:",     "T2:",     "T3:",     "T4:",     "T5:",     "B:",   "C:"}
 #define HEAT_DISPLAY_ID  {"T0",      "T1",      "T2",      "T3",      "T4",      "T5",      "Bed",  "Chamber"}
 #define HEAT_CMD         {"M104 T0", "M104 T1", "M104 T2", "M104 T3", "M104 T4", "M104 T5", "M140", "M141"};
@@ -206,17 +213,17 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 235
-#define Y_MAX_POS 235
-#define Z_MAX_POS 250
+#define X_MAX_POS 250
+#define Y_MAX_POS 210
+#define Z_MAX_POS 212
 
 // Specify a pause position as { X, Y, Z_raise }
 #define NOZZLE_PAUSE_RETRACT_LENGTH 15   // (mm)
 #define NOZZLE_RESUME_PURGE_LENGTH  16   // (mm)
 #define NOZZLE_PAUSE_X_POSITION     (X_MIN_POS + 10)  // (mm) Must be an integer
-#define NOZZLE_PAUSE_Y_POSITION     (Y_MIN_POS + 10)  // (mm) Must be an integer
-#define NOZZLE_PAUSE_Z_RAISE        20   // (mm)
-#define NOZZLE_PAUSE_E_FEEDRATE     6000 // (mm/min) retract & purge feedrate
+#define NOZZLE_PAUSE_Y_POSITION     (Y_MAX_POS - 10)  // (mm) Must be an integer
+#define NOZZLE_PAUSE_Z_RAISE        10   // (mm)
+#define NOZZLE_PAUSE_E_FEEDRATE     3000 // (mm/min) retract & purge feedrate
 #define NOZZLE_PAUSE_XY_FEEDRATE    6000 // (mm/min) X and Y axes feedrate
 #define NOZZLE_PAUSE_Z_FEEDRATE     600  // (mm/min) Z axis feedrate
 
@@ -244,7 +251,11 @@
  * Options:  0: Disabled    1: Enabled    2: Auto-detect [default]
  *
  */
+<<<<<<< Updated upstream
 #define ENABLE_UBL_VALUE 2
+=======
+#define ENABLE_UBL_VALUE 0
+>>>>>>> Stashed changes
 
 /**
  * Enable friendly probe offset language.
@@ -290,8 +301,8 @@
  * Z Fade
  */
 #define Z_FADE_MIN_VALUE     0.0f
-#define Z_FADE_MAX_VALUE     20.0f
-#define Z_FADE_DEFAULT_VALUE 10.0f
+#define Z_FADE_MAX_VALUE     10.0f
+#define Z_FADE_DEFAULT_VALUE 3.0f
 
 /**
  * Probe Offset
@@ -402,22 +413,22 @@
 #define CUSTOM_2_GCODE "M22\n"
 #define CUSTOM_3_LABEL "Enable Leveling State"
 #define CUSTOM_3_GCODE "M420 S1\n"
-#define CUSTOM_4_LABEL "Save to EEPROM"
-#define CUSTOM_4_GCODE "M500\n"
-#define CUSTOM_5_LABEL "Restore from EEPROM"
-#define CUSTOM_5_GCODE "M501\n"
-#define CUSTOM_6_LABEL "EEPROM Defaults"
-#define CUSTOM_6_GCODE "M502\n"
-//#define CUSTOM_7_LABEL "Custom7"
-//#define CUSTOM_7_GCODE "M105\n"
-//#define CUSTOM_8_LABEL "Custom8"
-//#define CUSTOM_8_GCODE "M105\n"
-//#define CUSTOM_9_LABEL "Custom9"
-//#define CUSTOM_9_GCODE "M105\n"
-//#define CUSTOM_10_LABEL "Custom10"
-//#define CUSTOM_10_GCODE "M105\n"
-//#define CUSTOM_11_LABEL "Custom11"
-//#define CUSTOM_11_GCODE "M105\n"
+#define CUSTOM_4_LABEL "ABL & Z-Fade 3mm"
+#define CUSTOM_4_GCODE "G28\nG29\nM420 S1 Z3\n"
+#define CUSTOM_5_LABEL "PID extruder 210C"
+#define CUSTOM_5_GCODE "M303 E0 C8 S210 U\n"
+#define CUSTOM_6_LABEL "PID bed 90C"
+#define CUSTOM_6_GCODE "M303 E-1 C5 S90 U\n"
+#define CUSTOM_7_LABEL "Print current settings"
+#define CUSTOM_7_GCODE "M503\n"
+#define CUSTOM_8_LABEL "Full Calibration"
+#define CUSTOM_8_GCODE "M140 S60\nM190 S60\nG28\nG34\nG29\nM500\nM140 S0\nG28"
+#define CUSTOM_9_LABEL "Save to EEPROM-M500"
+#define CUSTOM_9_GCODE "M500\n"
+#define CUSTOM_10_LABEL "Restore EEPROM-M501"
+#define CUSTOM_10_GCODE "M501\n"
+#define CUSTOM_11_LABEL "EEPROM defaults-M502"
+#define CUSTOM_11_GCODE "M502\n"
 //#define CUSTOM_12_LABEL "Custom12"
 //#define CUSTOM_12_GCODE "M105\n"
 //#define CUSTOM_13_LABEL "Custom13"
